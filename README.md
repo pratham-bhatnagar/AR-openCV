@@ -63,7 +63,7 @@ Creating a ORB descriptor for Feature Detection
 ORB = cv2.ORB_create(nfeatures=1000)
 ```
 ***
-Identifying featurs using `ORB.detectAndCompute` Method.
+Identifying features using `ORB.detectAndCompute` Method.
 ```py
 keyPoint1, descriptor1 = ORB.detectAndCompute(imgTarget,None)
 ```
@@ -92,7 +92,7 @@ Using Brute-Force Feature Matching for Comparing Target Image and Webcam feature
     matches = bruteForce.knnMatch(descriptor1,descriptor2,k=2)
     ```
 ***
-Filtering out the good matches only 
+Filtering out good matches only 
 ```py
     goodMatches = []
     for m,n in matches:
@@ -100,19 +100,19 @@ Filtering out the good matches only
             goodMatches.append(m)
 ```
 ***
-Converting `goodMatches` into openCV accepted Cordinates
+Converting `goodMatches` into openCV accepted Coordinates
 ```py                 
     if len(goodMatches) > 15:
         srcPts = np.float32([keyPoint1[m.queryIdx].pt for m in goodMatches]).reshape(-1,1,2)
         dstPts = np.float32([keyPoint2[m.trainIdx].pt for m in goodMatches]).reshape(-1,1,2)
 ```
 ***
-Using `cv2.findHomography` method to find to cornors using `cv2.RANSAC` algorithm
+Using `cv2.findHomography` method to find to corners using `cv2.RANSAC` algorithm
 ```py
         matrix , mask = cv2.findHomography(srcPts,dstPts,cv2.RANSAC,5)
 ```
 ***
-Using `cv2.perspectiveTransform` method to convert cornors matirx into Standard shape
+Using `cv2.perspectiveTransform` method to convert corners matrix into Standard shape
 ```py  
         pts = np.float32([[0,0],[0,440],[275,440],[275,0]]).reshape(-1,1,2)
         dst = cv2.perspectiveTransform(pts,matrix)
@@ -150,3 +150,13 @@ Finally Displaying Output
 
 webCam.release()
 ```
+***
+
+<div align = "center">
+<h2>📬 Contact</h2>
+
+If you want to contact me, you can reach me through below handles.
+
+<a href="https://twitter.com/prrthamm"><img src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/c8/Twitter_Bird.svg/1200px-Twitter_Bird.svg.png" width="25">@prrthamm</img></a>&nbsp;&nbsp; <a href="https://www.linkedin.com/in/pratham-bhatnagar/"><img src="https://www.felberpr.com/wp-content/uploads/linkedin-logo.png" width="25"> Pratham Bhatnagar</img></a>
+
+</div>
