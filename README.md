@@ -63,10 +63,19 @@ Creating a ORB descriptor for Feature Detection
 ORB = cv2.ORB_create(nfeatures=1000)
 ```
 ***
-
+Identifying featurs using `ORB.detectAndCompute` Method.
 ```py
 keyPoint1, descriptor1 = ORB.detectAndCompute(imgTarget,None)
 ```
+***
+Drawing Features on the Target Image 
+```py
+imgTarget=cv2.drawKeypoints(imgTarget, keyPoint1,None) 
+cv2.imshow("keypoints",imgTarget)
+```
+***
+Initializing a conditional loop, Checking for Webcam input, And then using `ORB.detectAndCompute` method for spotting features in the webcam.
+```py
 while webCam.isOpened():
     _ , imgWebcam = webCam.read()  
     keyPoint2, descriptor2 = ORB.detectAndCompute(imgWebcam,None) 
@@ -75,12 +84,15 @@ while webCam.isOpened():
     
     _ , imgVideo = displayVid.read()
     imgVideo = cv2.resize(imgVideo, stdShape)
-
+```
+***
+Using Brute-Force Feature Matching for Comparing Target Image and Webcam features.
+```py
     bruteForce = cv2.BFMatcher()
     matches = bruteForce.knnMatch(descriptor1,descriptor2,k=2)
-    
     goodMatches = []
-
+```
+```py
     for m,n in matches:
         if m.distance < 0.75 * n.distance:
             goodMatches.append(m)
@@ -109,3 +121,4 @@ while webCam.isOpened():
           break
 
 webCam.release()
+```

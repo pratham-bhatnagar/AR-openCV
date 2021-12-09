@@ -15,6 +15,7 @@ while webCam.isOpened():
     _ , imgWebcam = webCam.read()  
     keyPoint2, descriptor2 = ORB.detectAndCompute(imgWebcam,None) 
     
+    
     imgAR  = imgWebcam.copy()
     
     _ , imgVideo = displayVid.read()
