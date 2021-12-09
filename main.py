@@ -3,18 +3,15 @@ import cv2
 
 stdShape = (275,440)
 
-
 webCam = cv2.VideoCapture(0)
 imgTarget = cv2.imread("assets\imgTarget.jpg")
 imgTarget = cv2.resize(imgTarget,stdShape)
 displayVid = cv2.VideoCapture("assets\displayVid.mp4")
 
-
 ORB = cv2.ORB_create(nfeatures=1000)
 keyPoint1, descriptor1 = ORB.detectAndCompute(imgTarget,None)
 
 while webCam.isOpened():
-    
     _ , imgWebcam = webCam.read()  
     keyPoint2, descriptor2 = ORB.detectAndCompute(imgWebcam,None) 
     
@@ -32,16 +29,10 @@ while webCam.isOpened():
         if m.distance < 0.75 * n.distance:
             goodMatches.append(m)
                  
-    
     if len(goodMatches) > 15:
-        
-        imgFeatures = cv2.drawMatches(imgTarget,keyPoint1,imgWebcam,keyPoint2,goodMatches,None,flags=2)
-        
         srcPts = np.float32([keyPoint1[m.queryIdx].pt for m in goodMatches]).reshape(-1,1,2)
         dstPts = np.float32([keyPoint2[m.trainIdx].pt for m in goodMatches]).reshape(-1,1,2)
         matrix , mask = cv2.findHomography(srcPts,dstPts,cv2.RANSAC,5)
-        
-        
         
         pts = np.float32([[0,0],[0,440],[275,440],[275,0]]).reshape(-1,1,2)
         dst = cv2.perspectiveTransform(pts,matrix)
@@ -55,12 +46,8 @@ while webCam.isOpened():
         invMask = cv2.bitwise_not(newmask)
         imgAR = cv2.bitwise_and(imgAR,imgAR,mask=invMask)
         imgAR = cv2.bitwise_or(imgAR,imgWarp)
-
     
-    
-        
     cv2.imshow("imgAR",imgAR)
-
     
     if cv2.waitKey(1) & 0xFF == ord('q'):
           break
