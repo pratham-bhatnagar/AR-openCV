@@ -37,7 +37,6 @@ while webCam.isOpened():
         
         pts = np.float32([[0,0],[0,440],[275,440],[275,0]]).reshape(-1,1,2)
         dst = cv2.perspectiveTransform(pts,matrix)
-        cv2.polylines(imgWebcam,[np.int32(dst)],True,(0,0,255),3)
         
         imgWarp = cv2.warpPerspective(imgVideo,matrix,(imgWebcam.shape[1],imgWebcam.shape[0]))
         
