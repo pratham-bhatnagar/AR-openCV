@@ -43,9 +43,34 @@ For BF matcher, first we have to create the BFMatcher object using `cv2.BFMatche
 
 <tr>
     <td>
-        <img alt="Temp matching" src="assets/drawKeyPoints.gif" />
+        <img alt="keyPointsMatching" src="assets/drawKeyPoints.gif" wight= 500 height=400 />
     </td>
 </tr> 
+
+<tr>
+    <td>
+       <h3>PolyLines Drawing</h3>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <img alt="polylines" src="assets/polyLines.gif" wight= 500 height=400/>
+    </td>
+</tr> 
+
+<tr>
+    <td>
+       <h3>Mask Creation on Detected Homography</h3>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <img alt="mask" src="assets/mask.gif" wight= 500 height=400/>
+    </td>
+</tr> 
+
 </table>
 
 
