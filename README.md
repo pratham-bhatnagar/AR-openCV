@@ -13,6 +13,9 @@
 ```bash
 pip install -r requirements.txt
 ```
+# License 📜
+
+This project is available under the MIT license. See the [LICENSE.md](https://github.com/pratham-bhatnagar/AR-openCV/blob/master/LICENSE.md) file for more info.
 
 ### ORB in OpenCV
 ORB (oriented BRIEF) keypoint detector and descriptor extractor.
@@ -38,7 +41,8 @@ For BF matcher, first we have to create the BFMatcher object using `cv2.BFMatche
 <tr>
     <td>
        <h3>Key Points Matching</h3>
-    </td>
+       
+</td>
 </tr>
 
 <tr>
