@@ -3,7 +3,7 @@
   <img alt="output" src="assets/output.gif" />
  </div>
 
-> This project uses openCV for showcasing the use if openCV-pyhton in Augmented Reality.
+> This project tries to implement augmented reality with OpenCV.
 
 
 # 💾 REQUIREMENTS
