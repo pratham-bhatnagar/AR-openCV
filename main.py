@@ -15,7 +15,6 @@ while webCam.isOpened():
     _ , imgWebcam = webCam.read()  
     keyPoint2, descriptor2 = ORB.detectAndCompute(imgWebcam,None) 
     
-    
     imgAR  = imgWebcam.copy()
     
     _ , imgVideo = displayVid.read()
@@ -48,10 +47,11 @@ while webCam.isOpened():
         imgAR = cv2.bitwise_and(imgAR,imgAR,mask=invMask)
         imgAR = cv2.bitwise_or(imgAR,imgWarp)
     
-    #cv2.imshow("imgAR",imgAR)
+    cv2.imshow("imgAR",imgAR)
     
     if cv2.waitKey(1) & 0xFF == ord('q'):
           break
 
 webCam.release()
 
+# Code by Pratham Bhatnagar.

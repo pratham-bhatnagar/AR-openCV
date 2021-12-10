@@ -32,7 +32,24 @@ For BF matcher, first we have to create the BFMatcher object using `cv2.BFMatche
 
 > Source: [Brute-Force Feature Matching](https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_feature2d/py_matcher/py_matcher.html)
 
+<div align="center">
 
+<table>
+<tr>
+    <td>
+       <h3>Key Points Matching</h3>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <img alt="Temp matching" src="assets/drawKeyPoints.gif" />
+    </td>
+</tr> 
+</table>
+
+
+</div>
 
 
 
